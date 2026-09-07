@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your repair — Example Heating</title>
+</head>
+<body>
+<!--agentml-->
+<section id="follow-up" data-description="Follow up on a repair visit. Find out whether the fault is fixed. If it is not, take the symptom and agree a day for a return visit.">
+  <h2>Your boiler repair on Tuesday 15 September</h2>
+  <p>Our engineer replaced the diverter valve and tested the heating and hot water before leaving.</p>
+  <p>The repair is guaranteed for 12 months, parts and labour.</p>
+  <form action="/v/7f3a/follow-up?view=agent" method="post">
+    <input type="hidden" name="visit" value="7f3a">
+    <fieldset id="fixed-group" data-description="whether the fault is fixed, in the customer's own judgement">
+      <legend>Is everything working now?</legend>
+      <p><input type="radio" id="fixed-yes" name="fixed" value="yes" required> <label for="fixed-yes">Yes, it's working</label></p>
+      <p><input type="radio" id="fixed-no" name="fixed" value="no"> <label for="fixed-no">No, there's still a problem</label></p>
+    </fieldset>
+    <section id="still-broken" data-when="fixed = no">
+      <p>We will come back at no charge.</p>
+      <label for="problem">What is still wrong?</label>
+      <textarea id="problem" name="problem" rows="3" data-description="the symptom in the customer's words: no hot water, no heating, a noise, a leak" data-noinput="Take your time. What is it doing?"></textarea>
+      <label for="return_day">Which day could we come back?</label>
+      <select id="return_day" name="return_day" data-description="a day for the return visit">
+        <option id="return_day_mon" value="2026-09-21">Monday 21 September</option>
+        <option id="return_day_tue" value="2026-09-22">Tuesday 22 September</option>
+        <option id="return_day_wed" value="2026-09-23">Wednesday 23 September</option>
+      </select>
+      <button name="send_engineer_today" value="1" disabled data-description="send an engineer today, for a leak or for no heating with someone vulnerable at home; disabled because nobody is free today, so say a colleague will ring to arrange it">Send someone today</button>
+    </section>
+    <p id="consent" data-description="Say this before submitting.">We will use your answers to arrange any return visit.</p>
+    <button type="submit">Send</button>
+  </form>
+</section>
+<!--/agentml-->
+</body>
+</html>

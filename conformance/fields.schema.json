@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lead2deed/agentml/conformance/fields.schema.json",
+  "title": "AgentML 0.1 inventory",
+  "description": "The fields a page declares, in document order. SPEC.md §5.",
+  "type": "array",
+  "items": { "$ref": "#/$defs/field" },
+  "$defs": {
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "kind", "required", "label", "description", "constraint", "options", "disabled", "href"],
+      "properties": {
+        "id": { "type": "string", "description": "The element's id; what a result cites as its source. Empty when absent." },
+        "name": { "type": "string", "description": "The name the answer is submitted under. Empty for links and unnamed buttons." },
+        "kind": { "enum": ["choice", "text", "action", "submit", "link"] },
+        "required": { "type": "boolean" },
+        "label": { "type": "string", "description": "Label text for a text field or select; own text for a button or link; empty for a radio group." },
+        "description": { "type": "string", "description": "data-description, verbatim." },
+        "constraint": { "type": "string", "description": "data-constraint, verbatim." },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "value", "label"],
+            "properties": {
+              "id": { "type": "string" },
+              "value": { "type": "string" },
+              "label": { "type": "string" }
+            }
+          }
+        },
+        "disabled": { "type": "boolean" },
+        "href": { "type": "string" }
+      }
+    }
+  }
+}

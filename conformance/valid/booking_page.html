@@ -1,0 +1,37 @@
+<section id="booking" data-description="Book a callback with Example Legal. Ask which time suits, confirm the number to ring, then submit.">
+  <h2>Book a callback with Example Legal</h2>
+  <p>Choose a time and we will ring you. The call lasts about 15 minutes.</p>
+  <form action="/p/example-legal?n=%2B447700900123" method="post">
+    <fieldset id="slot-group" data-description="the time the caller chose">
+      <legend>When suits you?</legend>
+      <p><input type="radio" id="slot-0" name="slot" value="2026-06-02T14:00:00+01:00" required> <label for="slot-0">Tuesday 2 June at 2:00pm</label></p>
+      <p><input type="radio" id="slot-1" name="slot" value="2026-06-02T14:30:00+01:00"> <label for="slot-1">Tuesday 2 June at 2:30pm</label></p>
+      <p><input type="radio" id="slot-2" name="slot" value="2026-06-03T09:00:00+01:00"> <label for="slot-2">Wednesday 3 June at 9:00am</label></p>
+    </fieldset>
+    <label for="client_name">Your name</label>
+    <input type="text" id="client_name" name="client_name" value="" data-description="what the caller would like to be called; may already be known, confirm rather than ask">
+    <label for="client_number">Number to call you on</label>
+    <input type="tel" id="client_number" name="client_number" value="+447700900123" required data-description="the number to ring at the booked time; defaults to the one they called from and may be changed">
+    <label for="message">Anything we should know first?</label>
+    <textarea id="message" name="message" rows="3" data-description="optional context to pass to whoever takes the call"></textarea>
+<label for="enquiry_type">What is the enquiry about?</label>
+<select id="enquiry_type" name="enquiry_type" required="" data-description="which kind of matter the caller has">
+  <option value="sale">Selling a property</option>
+  <option value="purchase">Buying a property</option>
+  <option value="remortgage">A remortgage</option>
+  <option value="other">Something else</option>
+</select>
+
+<fieldset id="property_address_group" data-description="the property the enquiry is about; confirm the postcode letter by letter, then the address at it">
+  <legend>Address of the property</legend>
+  <label for="property_address_postcode">Postcode</label>
+  <input type="text" id="property_address_postcode" name="property_address_postcode" value="" required="" data-constraint="uk_postcode" data-description="the UK postcode of the address; if it is unclear, ask for it letter by letter and read it back"/>
+  <p><a data-description="fetch the addresses at that postcode: append the postcode the caller gave to this link and follow it; the page it returns offers them as options" href="/p/example-legal/address?field=property_address&amp;postcode=" id="property_address_lookup">Find the address</a></p>
+  <input type="hidden" id="property_address_id" name="property_address_id" value=""/>
+  <label for="property_address_line">House number or name, and street, if it is not listed</label>
+  <input type="text" id="property_address_line" name="property_address_line" value="" data-constraint="uk_address_line" data-description="the first line of the address, only when it was not among the options"/>
+</fieldset>
+    <p id="consent" data-description="Say this before submitting; the caller's submission is their consent to be rung.">By booking, you are asking us to ring you on this number at the time you choose.</p>
+    <button type="submit">Book this time</button>
+  </form>
+</section>

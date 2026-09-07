@@ -1,0 +1,11 @@
+<section id="urgency">
+  <p>How soon does this need dealing with?</p>
+  <fieldset id="urgency_group" data-description="how urgent the matter is">
+    <legend>How urgent is it?</legend>
+    <p><input type="radio" id="urgency_today" name="urgency" value="today" required> <label for="urgency_today">Today</label></p>
+    <p><input type="radio" id="urgency_week" name="urgency" value="week"> <label for="urgency_week">This week</label></p>
+    <p><input type="radio" id="urgency_whenever" name="urgency" value="whenever"> <label for="urgency_whenever">Whenever suits</label></p>
+  </fieldset>
+  <button name="send_booking_sms" value="1" disabled data-description="text the caller a booking link">Text me the link</button>
+  <button type="submit">Done</button>
+</section>

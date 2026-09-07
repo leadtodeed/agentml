@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Book a callback — Example Legal</title>
+<style>
+/* The shell is the web channel's rendering and lives outside the markers.
+   Nothing in here is part of the AgentML fragment. */
+:root { --bg: #fff; --fg: #16181d; --muted: #5c6470; --line: #d7dbe0; --accent: #12603f; --card: #f6f7f9; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14161a; --fg: #e9ecf1; --muted: #a2abb8; --line: #333941; --accent: #4ec08c; --card: #1c1f25; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 1.5rem 1rem 3rem; background: var(--bg); color: var(--fg);
+       font: 1rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+section { max-width: 32rem; margin: 0 auto; }
+fieldset { border: 0; margin: 0 0 1.5rem; padding: 0; }
+legend { font-weight: 600; margin-bottom: .6rem; }
+fieldset p { margin: 0 0 .5rem; }
+fieldset input[type="radio"] { position: absolute; opacity: 0; }
+fieldset label { display: flex; align-items: center; min-height: 3rem; padding: .65rem .9rem;
+                 border: 1px solid var(--line); border-radius: .6rem; background: var(--card); cursor: pointer; }
+fieldset input[type="radio"]:checked + label { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); font-weight: 600; }
+label[for] { display: block; margin: 0 0 .35rem; font-weight: 600; }
+input[type="tel"], input[type="text"], textarea { width: 100%; font: inherit; padding: .8rem .9rem; margin: 0 0 1.25rem;
+  border: 1px solid var(--line); border-radius: .6rem; background: var(--bg); color: var(--fg); }
+button { width: 100%; min-height: 3.25rem; font: inherit; font-weight: 600; border: 0; border-radius: .6rem;
+         background: var(--accent); color: var(--bg); }
+#consent { color: var(--muted); font-size: .92rem; }
+</style>
+</head>
+<body>
+<!--agentml-->
+<section id="booking" data-description="Book a callback with Example Legal. Ask which day suits, confirm the number to ring, then submit.">
+  <h2>Book a callback with Example Legal</h2>
+  <p>Choose a day and we will ring you at some point during it.</p>
+  <form action="/p/example-legal?view=agent" method="post">
+    <fieldset id="slot-group" data-description="the day the caller chose">
+      <legend>Which day suits you?</legend>
+      <p><input type="radio" id="slot-0" name="slot" value="2026-09-18T23:59:00+01:00" required> <label for="slot-0">Friday 18 September</label></p>
+      <p><input type="radio" id="slot-1" name="slot" value="2026-09-21T23:59:00+01:00"> <label for="slot-1">Monday 21 September</label></p>
+      <p><input type="radio" id="slot-2" name="slot" value="2026-09-22T23:59:00+01:00"> <label for="slot-2">Tuesday 22 September</label></p>
+      <p><input type="radio" id="slot-3" name="slot" value="2026-09-23T23:59:00+01:00"> <label for="slot-3">Wednesday 23 September</label></p>
+    </fieldset>
+    <label for="client_name">Your name</label>
+    <input type="text" id="client_name" name="client_name" value="" data-description="what the caller would like to be called; may already be known, confirm rather than ask">
+    <label for="client_number">Number to call you on</label>
+    <input type="tel" id="client_number" name="client_number" value="+447700900123" required data-description="the number to ring on the chosen day; defaults to the one they called or messaged from and may be changed">
+    <label for="message">Anything we should know first?</label>
+    <textarea id="message" name="message" rows="3" data-description="optional context to pass to whoever takes the call"></textarea>
+    <label for="business">What does your business do? (optional)</label>
+    <input type="text" id="business" name="business" data-description="what the caller's business does, in their own words; one short phrase is enough, and it is fine to have nothing">
+    <p id="consent" data-description="Say this before submitting; the caller's submission is their consent to be rung.">By booking, you are asking us to ring you on this number during the day you choose.</p>
+    <button type="submit">Book this day</button>
+  </form>
+</section>
+<!--/agentml-->
+</body>
+</html>

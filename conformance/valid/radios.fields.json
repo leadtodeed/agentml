@@ -1,0 +1,54 @@
+[
+  {
+    "id": "urgency_today",
+    "name": "urgency",
+    "kind": "choice",
+    "required": true,
+    "label": "",
+    "description": "",
+    "constraint": "",
+    "options": [
+      {
+        "id": "urgency_today",
+        "value": "today",
+        "label": "Today"
+      },
+      {
+        "id": "urgency_week",
+        "value": "week",
+        "label": "This week"
+      },
+      {
+        "id": "urgency_whenever",
+        "value": "whenever",
+        "label": "Whenever suits"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "send_booking_sms",
+    "kind": "action",
+    "required": false,
+    "label": "Text me the link",
+    "description": "text the caller a booking link",
+    "constraint": "",
+    "options": [],
+    "disabled": true,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "",
+    "kind": "submit",
+    "required": false,
+    "label": "Done",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "property_address_id",
+    "name": "property_address_id",
+    "kind": "choice",
+    "required": false,
+    "label": "Which address is it?",
+    "description": "the address the caller confirms; 'none of these' if theirs is not listed",
+    "constraint": "",
+    "options": [
+      {
+        "id": "",
+        "value": "",
+        "label": "None of these"
+      },
+      {
+        "id": "property_address_id_1001",
+        "value": "1001",
+        "label": "6 Mill Lane, Anytown"
+      },
+      {
+        "id": "property_address_id_1002",
+        "value": "1002",
+        "label": "8 Mill Lane, Anytown"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "kind": "link",
+    "required": false,
+    "label": "Change or cancel this callback",
+    "description": "where the caller can move or cancel this booking; mention it, do not read the address out",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "/m/abc123?view=agent"
+  }
+]

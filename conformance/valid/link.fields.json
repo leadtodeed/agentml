@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pc",
+    "name": "pc",
+    "kind": "text",
+    "required": false,
+    "label": "Postcode",
+    "description": "",
+    "constraint": "uk_postcode",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "lookup",
+    "name": "",
+    "kind": "link",
+    "required": false,
+    "label": "Find the address",
+    "description": "fetch the addresses",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "/p/x/address?postcode="
+  }
+]

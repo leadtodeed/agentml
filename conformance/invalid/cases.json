@@ -1,0 +1,17 @@
+[
+  {"file": "script.html", "reason": "element outside the allowlist: script", "mentions": "<script>"},
+  {"file": "style_element.html", "reason": "element outside the allowlist: style", "mentions": "<style>"},
+  {"file": "iframe.html", "reason": "element outside the allowlist: iframe", "mentions": "<iframe>"},
+  {"file": "img.html", "reason": "element outside the allowlist: img", "mentions": "<img>"},
+  {"file": "video.html", "reason": "element outside the allowlist: video", "mentions": "<video>"},
+  {"file": "event_handler.html", "reason": "event handler attribute", "mentions": "onclick"},
+  {"file": "style_attribute.html", "reason": "attribute outside the allowlist: style", "mentions": "\"style\""},
+  {"file": "class_attribute.html", "reason": "attribute outside the allowlist: class", "mentions": "\"class\""},
+  {"file": "comment.html", "reason": "HTML comment inside the fragment", "mentions": "comment"},
+  {"file": "input_color.html", "reason": "input type with no spoken or written form", "mentions": "\"color\""},
+  {"file": "href_absolute.html", "reason": "href not root-relative: absolute URL", "mentions": "root-relative"},
+  {"file": "href_protocol_relative.html", "reason": "href not root-relative: protocol-relative URL", "mentions": "root-relative"},
+  {"file": "href_javascript.html", "reason": "href not root-relative: javascript: URL", "mentions": "root-relative"},
+  {"file": "href_path_relative.html", "reason": "href not root-relative: path-relative URL", "mentions": "root-relative"},
+  {"file": "many_violations.html", "reason": "several violations; a validator should report all of them", "mentions": "<img>"}
+]

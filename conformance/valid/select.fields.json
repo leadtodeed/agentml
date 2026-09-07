@@ -1,0 +1,37 @@
+[
+  {
+    "id": "matter_type",
+    "name": "matter_type",
+    "kind": "choice",
+    "required": true,
+    "label": "What kind of matter is it?",
+    "description": "the kind of legal matter",
+    "constraint": "",
+    "options": [
+      {
+        "id": "matter_type_sale",
+        "value": "sale",
+        "label": "A sale"
+      },
+      {
+        "id": "matter_type_purchase",
+        "value": "purchase",
+        "label": "A purchase"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "notes",
+    "name": "notes",
+    "kind": "text",
+    "required": false,
+    "label": "Anything else?",
+    "description": "anything to pass on",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]

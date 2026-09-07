@@ -1,0 +1,147 @@
+[
+  {
+    "id": "slot-0",
+    "name": "slot",
+    "kind": "choice",
+    "required": true,
+    "label": "",
+    "description": "",
+    "constraint": "",
+    "options": [
+      {
+        "id": "slot-0",
+        "value": "2026-06-02T14:00:00+01:00",
+        "label": "Tuesday 2 June at 2:00pm"
+      },
+      {
+        "id": "slot-1",
+        "value": "2026-06-02T14:30:00+01:00",
+        "label": "Tuesday 2 June at 2:30pm"
+      },
+      {
+        "id": "slot-2",
+        "value": "2026-06-03T09:00:00+01:00",
+        "label": "Wednesday 3 June at 9:00am"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "client_name",
+    "name": "client_name",
+    "kind": "text",
+    "required": false,
+    "label": "Your name",
+    "description": "what the caller would like to be called; may already be known, confirm rather than ask",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "client_number",
+    "name": "client_number",
+    "kind": "text",
+    "required": true,
+    "label": "Number to call you on",
+    "description": "the number to ring at the booked time; defaults to the one they called from and may be changed",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "message",
+    "name": "message",
+    "kind": "text",
+    "required": false,
+    "label": "Anything we should know first?",
+    "description": "optional context to pass to whoever takes the call",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "enquiry_type",
+    "name": "enquiry_type",
+    "kind": "choice",
+    "required": true,
+    "label": "What is the enquiry about?",
+    "description": "which kind of matter the caller has",
+    "constraint": "",
+    "options": [
+      {
+        "id": "",
+        "value": "sale",
+        "label": "Selling a property"
+      },
+      {
+        "id": "",
+        "value": "purchase",
+        "label": "Buying a property"
+      },
+      {
+        "id": "",
+        "value": "remortgage",
+        "label": "A remortgage"
+      },
+      {
+        "id": "",
+        "value": "other",
+        "label": "Something else"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "property_address_postcode",
+    "name": "property_address_postcode",
+    "kind": "text",
+    "required": true,
+    "label": "Postcode",
+    "description": "the UK postcode of the address; if it is unclear, ask for it letter by letter and read it back",
+    "constraint": "uk_postcode",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "property_address_lookup",
+    "name": "",
+    "kind": "link",
+    "required": false,
+    "label": "Find the address",
+    "description": "fetch the addresses at that postcode: append the postcode the caller gave to this link and follow it; the page it returns offers them as options",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "/p/example-legal/address?field=property_address\u0026postcode="
+  },
+  {
+    "id": "property_address_line",
+    "name": "property_address_line",
+    "kind": "text",
+    "required": false,
+    "label": "House number or name, and street, if it is not listed",
+    "description": "the first line of the address, only when it was not among the options",
+    "constraint": "uk_address_line",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "",
+    "kind": "submit",
+    "required": false,
+    "label": "Book this time",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "",
+    "name": "why",
+    "kind": "text",
+    "required": false,
+    "label": "",
+    "description": "",
+    "constraint": "len \u003e 3",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]
