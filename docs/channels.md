@@ -83,6 +83,32 @@ What real calls taught us:
   dead line. Stream the first sentence, and keep the model's prompt small:
   the page is the script, so the prompt only needs to set the manner.
 
+### Context the consumer derives from an answer
+
+A page asks for what the person can tell it; it does not have to ask for what
+the consumer can look up. The support-line agent (meowgent, 2026-09-27) asks
+`property_address` (`data-constraint="uk_address"`) and nothing about the case:
+from the address the consumer derives, out of its own data, which matter it
+is, which team handles it and who leads it, and writes that into the page's
+free-text `message` before submitting. The page stays a plain form a browser
+can render, the producer never learns a case id from the caller, and the
+lookup can move (from a local table to the tenant's API) without the page
+changing. Two rules kept it honest:
+
+- **The derived fact is never spoken.** Who handles a matter is written into
+  the submission for the team, not read to whoever is on the line — the
+  consumer cannot know they are the client.
+- **Ambiguity becomes one more question, phrased from the answer.** Two
+  matters at one address: "I have two matters at that address — a sale and a
+  purchase. Which is it about?" — a choice whose options are single words.
+
+Lessons from the humans' calls that shaped the voice walk (1,333 support
+calls read): open with the first question, not "how can I help" (the postcode
+was asked on 51% of calls and spelled in NATO on 41%); read the first line of
+the address back rather than the postcode a second time; confirm the number
+the person is calling from in one breath; the promise after submitting is the
+page's own confirmation and nothing more definite.
+
 ## Chat
 
 Chat is the same walk, one message at a time.
