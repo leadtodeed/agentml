@@ -55,6 +55,12 @@ What real calls taught us:
   whatever they say while the agent is still speaking is easily lost.
 - **Keep turns to a sentence or two.** Short questions do more for turn-taking
   than any matcher.
+- **Tell the model every option, even when it should say only some.** What
+  is spoken can be short; what the model is told must be whole. A note that
+  listed six of seven options and "… (1 more)" left the model to fill the
+  gap, and it offered "call marks", a word the caller had just been misheard
+  saying, as an option the page does not have. Shortening is the
+  controller's decision or the model's phrasing, never a hole in the note.
 - **Match words to option labels, not to values.** Weekday names, "next
   Monday", "tomorrow", "the 21st", "the second one". When rules find nothing,
   a model may choose among the labels. The answer is still one of the page's
