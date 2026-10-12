@@ -336,6 +336,17 @@ rather than ask for it again. A consumer MUST submit a prefilled value
 unchanged if it never brought the field up, which is exactly what a browser
 does with a field nobody touched.
 
+**A choice's default.** A `checked` radio or a `selected` option is also how
+a producer says which option to offer first: the earliest free time, the
+matter the person most likely means. A consumer SHOULD propose it in one
+short turn ("The earliest is tomorrow at 12pm. Shall I book that?") rather
+than read every option. If the person turns it down, the consumer offers the
+other options, summarised when there are many, as a person would ("Tuesday
+afternoon or Wednesday afternoon?"), and MUST NOT offer the declined option
+again, though it MAY still accept it if the person asks for it after all. An
+answer that names another option is that answer and needs no "no" first. A
+choice with no default is asked with its options.
+
 **Hidden inputs.** A hidden input carries something the producer needs back,
 such as a visit reference or a token, without making it a question. A
 consumer MUST submit it exactly as it came, and MUST NOT say it or send it
