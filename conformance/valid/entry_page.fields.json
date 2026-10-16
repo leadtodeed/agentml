@@ -1,0 +1,107 @@
+[
+  {
+    "id": "property_address_postcode",
+    "name": "property_address_postcode",
+    "kind": "text",
+    "required": true,
+    "label": "Postcode",
+    "description": "the UK postcode of the address; if it is unclear, ask for it letter by letter and read it back",
+    "constraint": "uk_postcode",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "property_address_lookup",
+    "name": "",
+    "kind": "link",
+    "required": false,
+    "label": "Find the address",
+    "description": "fetch the addresses at that postcode: append the postcode the caller gave to this link and follow it; the page it returns offers them as options",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "/c/example-legal/address?field=property_address\u0026did=%2B442046206677\u0026postcode="
+  },
+  {
+    "id": "property_address_line",
+    "name": "property_address_line",
+    "kind": "text",
+    "required": false,
+    "label": "House number or name, and street, if it is not listed",
+    "description": "the first line of the address, only when it was not among the options",
+    "constraint": "uk_address_line",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "",
+    "kind": "submit",
+    "required": false,
+    "label": "Find my team",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "client_name",
+    "name": "client_name",
+    "kind": "text",
+    "required": false,
+    "label": "Who you are talking to",
+    "description": "the name of the person on the call, as they gave it",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "contact_role",
+    "name": "contact_role",
+    "kind": "choice",
+    "required": false,
+    "label": "Their part in the matter",
+    "description": "which party to the transaction the caller is",
+    "constraint": "",
+    "options": [
+      {
+        "id": "",
+        "value": "seller",
+        "label": "The seller"
+      },
+      {
+        "id": "",
+        "value": "buyer",
+        "label": "The buyer"
+      },
+      {
+        "id": "",
+        "value": "estate_agent",
+        "label": "An estate agent"
+      },
+      {
+        "id": "",
+        "value": "other",
+        "label": "Someone else"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "summary",
+    "name": "summary",
+    "kind": "text",
+    "required": false,
+    "label": "Summary",
+    "description": "what the caller needs, in a sentence, for whoever answers",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]

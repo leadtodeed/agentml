@@ -1,0 +1,28 @@
+<section id="booking" data-description="Talk to the Example team, or book a callback with them. Ask which time suits, confirm the number to ring, then submit.">
+  <h2>Book a callback with the Example team</h2>
+  <p>Someone from the Example team is available now.</p>
+  <a href="tel:+442046206677;to=01a14495-5600-7f00-bf02-112233445566">Talk to them now</a>
+  <form action="/p/example-team?n=%2B447700900123&amp;did=%2B442046206677" method="post">
+    <label for="client_name">Your name</label>
+    <input type="text" id="client_name" name="client_name" value="" data-description="what the caller would like to be called; may already be known, confirm rather than ask">
+    <label for="client_number">Number to call you on</label>
+    <input type="tel" id="client_number" name="client_number" value="+447700900123" required data-description="the number to ring at the booked time; defaults to the one they called from and may be changed">
+    <label for="message">Anything we should know first?</label>
+    <textarea id="message" name="message" rows="3" data-description="optional context to pass to whoever takes the call"></textarea>
+<label for="enquiry_type">What is the enquiry about?</label>
+<select id="enquiry_type" name="enquiry_type" data-description="which kind of matter the caller has">
+  <option value="sale" selected>Selling a property</option>
+  <option value="purchase">Buying a property</option>
+  <option value="remortgage">A remortgage</option>
+  <option value="other">Something else</option>
+</select>
+    <fieldset id="slot-group" data-description="the time the caller chose">
+      <legend>When suits you?</legend>
+      <p><input type="radio" id="slot-0" name="slot" value="2026-10-19T10:00:00+01:00" required checked> <label for="slot-0">Monday 19 October at 10:00am</label></p>
+      <p><input type="radio" id="slot-1" name="slot" value="2026-10-19T10:30:00+01:00"> <label for="slot-1">Monday 19 October at 10:30am</label></p>
+      <p><input type="radio" id="slot-2" name="slot" value="2026-10-20T14:00:00+01:00"> <label for="slot-2">Tuesday 20 October at 2:00pm</label></p>
+    </fieldset>
+    <p id="consent" data-description="Say this before submitting; the caller's submission is their consent to be rung.">By booking, you are asking us to ring you on this number at the time you choose.</p>
+    <button type="submit">Book this time</button>
+  </form>
+</section>

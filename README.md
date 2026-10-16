@@ -52,6 +52,7 @@ what a browser would have sent.
 | `<button type=submit>` | Sends the form | Finishes: the agent submits and reads back the reply | Same |
 | `<button name=…>` | A second button | An action the agent may take, like "text me the link" | Same |
 | `<a href=/…>` | A link | More of the page, fetched when needed | Same |
+| `<a href=tel:…>` | Opens the phone app | Rings the person it names in the background, and joins them in on answer | Its text only |
 
 More in [how each medium walks a page](docs/channels.md).
 
@@ -74,7 +75,8 @@ More in [how each medium walks a page](docs/channels.md).
 
 AgentML is not a new markup language. It is a small allowlist of HTML: about
 twenty elements and a few `data-*` attributes. Anything else is **rejected,
-not ignored**: no scripts, no styles, no comments, no absolute links.
+not ignored**: no scripts, no styles, no comments, no absolute links other
+than `tel:` numbers.
 
 The rule that makes it safe to hand to a language model is **text is data**.
 The markup decides what the agent asks and does. The text is only material
@@ -108,10 +110,14 @@ same booking service. Nothing about the booking is written twice.
 
 ## Status
 
-**0.1, Draft.** Validation, field extraction, prefilled values, submission
+**0.2, Draft.** Validation, field extraction, prefilled values, submission
 with per-answer confidence, and the voice and chat walkers are running in
-production. Conditional sections (`data-when`), actions and general link
-traversal are specified as Draft or reserved.
+production. New in 0.2 and being built in the voice agent: `tel:` links it
+follows in the background to put a caller through to a person, walks over
+more than one page (a form whose submission redirects to the next), and
+`data-calculate` for a summary nobody is asked. Conditional sections
+(`data-when`), actions and general link traversal are specified as Draft or
+reserved.
 [SPEC §14](SPEC.md#14-implementation-status) has the full table.
 
 The implementations behind the demo are not open source yet. This repository

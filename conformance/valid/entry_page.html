@@ -1,0 +1,25 @@
+<section id="call" data-description="An incoming call to Example Legal. Find the property the call is about first, then take the caller's details for whoever answers.">
+  <form action="/c/example-legal?did=%2B442046206677&amp;view=agent" method="post">
+<fieldset id="property_address_group" data-description="the property the call is about; confirm the postcode letter by letter, then the address at it">
+  <legend>Address of the property</legend>
+  <label for="property_address_postcode">Postcode</label>
+  <input type="text" id="property_address_postcode" name="property_address_postcode" value="" required="" data-constraint="uk_postcode" data-description="the UK postcode of the address; if it is unclear, ask for it letter by letter and read it back"/>
+  <p><a data-description="fetch the addresses at that postcode: append the postcode the caller gave to this link and follow it; the page it returns offers them as options" href="/c/example-legal/address?field=property_address&amp;did=%2B442046206677&amp;postcode=" id="property_address_lookup">Find the address</a></p>
+  <input type="hidden" id="property_address_id" name="property_address_id" value=""/>
+  <label for="property_address_line">House number or name, and street, if it is not listed</label>
+  <input type="text" id="property_address_line" name="property_address_line" value="" data-constraint="uk_address_line" data-description="the first line of the address, only when it was not among the options"/>
+</fieldset>
+    <button type="submit">Find my team</button>
+    <label for="client_name">Who you are talking to</label>
+    <input type="text" id="client_name" name="client_name" data-description="the name of the person on the call, as they gave it">
+    <label for="contact_role">Their part in the matter</label>
+    <select id="contact_role" name="contact_role" data-description="which party to the transaction the caller is">
+      <option value="seller">The seller</option>
+      <option value="buyer">The buyer</option>
+      <option value="estate_agent">An estate agent</option>
+      <option value="other">Someone else</option>
+    </select>
+    <label for="summary">Summary</label>
+    <textarea id="summary" name="summary" rows="3" data-calculate="conversation" data-description="what the caller needs, in a sentence, for whoever answers"></textarea>
+  </form>
+</section>

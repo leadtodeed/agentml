@@ -1,0 +1,123 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "kind": "link",
+    "required": false,
+    "label": "Talk to them now",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "tel:+442046206677;to=01a14495-5600-7f00-bf02-112233445566"
+  },
+  {
+    "id": "client_name",
+    "name": "client_name",
+    "kind": "text",
+    "required": false,
+    "label": "Your name",
+    "description": "what the caller would like to be called; may already be known, confirm rather than ask",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "client_number",
+    "name": "client_number",
+    "kind": "text",
+    "required": true,
+    "label": "Number to call you on",
+    "description": "the number to ring at the booked time; defaults to the one they called from and may be changed",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "message",
+    "name": "message",
+    "kind": "text",
+    "required": false,
+    "label": "Anything we should know first?",
+    "description": "optional context to pass to whoever takes the call",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "enquiry_type",
+    "name": "enquiry_type",
+    "kind": "choice",
+    "required": false,
+    "label": "What is the enquiry about?",
+    "description": "which kind of matter the caller has",
+    "constraint": "",
+    "options": [
+      {
+        "id": "",
+        "value": "sale",
+        "label": "Selling a property"
+      },
+      {
+        "id": "",
+        "value": "purchase",
+        "label": "Buying a property"
+      },
+      {
+        "id": "",
+        "value": "remortgage",
+        "label": "A remortgage"
+      },
+      {
+        "id": "",
+        "value": "other",
+        "label": "Something else"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "slot-0",
+    "name": "slot",
+    "kind": "choice",
+    "required": true,
+    "label": "",
+    "description": "",
+    "constraint": "",
+    "options": [
+      {
+        "id": "slot-0",
+        "value": "2026-10-19T10:00:00+01:00",
+        "label": "Monday 19 October at 10:00am"
+      },
+      {
+        "id": "slot-1",
+        "value": "2026-10-19T10:30:00+01:00",
+        "label": "Monday 19 October at 10:30am"
+      },
+      {
+        "id": "slot-2",
+        "value": "2026-10-20T14:00:00+01:00",
+        "label": "Tuesday 20 October at 2:00pm"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "",
+    "kind": "submit",
+    "required": false,
+    "label": "Book this time",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]

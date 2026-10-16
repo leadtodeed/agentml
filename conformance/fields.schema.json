@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/lead2deed/agentml/conformance/fields.schema.json",
-  "title": "AgentML 0.1 inventory",
+  "title": "AgentML 0.2 inventory",
   "description": "The fields a page declares, in document order. SPEC.md §5.",
   "type": "array",
   "items": { "$ref": "#/$defs/field" },

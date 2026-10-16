@@ -13,8 +13,9 @@ What every consumer does, whatever the medium:
    than ask for them.
 3. Turn each answer into a value the page offers: an option's `value`, or
    text shaped by the field's constraint.
-4. Submit once every required field is answered, then tell the person what
-   the response page says.
+4. Submit on reaching the submit button with every required field answered,
+   then tell the person what the response page says, or walk it if it asks
+   for more ([SPEC §8.1](../SPEC.md#81-more-than-one-page)).
 
 The rest of this document covers what each medium adds, and what running them
 in production taught us.
@@ -114,6 +115,63 @@ was asked on 51% of calls and spelled in NATO on 41%); read the first line of
 the address back rather than the postcode a second time; confirm the number
 the person is calling from in one breath; the promise after submitting is the
 page's own confirmation and nothing more definite.
+
+### Talking to a person: live connect
+
+*Being built (meowgent, October 2026).* The support line above books a call
+back. Live connect puts the caller through to the team instead, when someone
+is free, and keeps the booking for when nobody answers. It is two plain
+pages and a `tel:` link:
+
+1. **The entry form.** The call starts on the tenant's incoming-call form.
+   Its first field is the property's address (`uk_address`), and its submit
+   button ("Find my team") comes straight after it, the last required field.
+   The walk submits as soon as it has the address
+   ([SPEC §8.1](../SPEC.md#81-more-than-one-page)).
+2. **The producer dispatches.** The form's handler finds who handles that
+   address and answers `303` to that team's page, with the address carried
+   as prefilled values. The consumer no longer derives the team itself
+   (above): it walks the page it is sent. The entry form stays open, like a
+   second tab.
+3. **The team page offers a person.** When someone on the team is free, the
+   page starts with a sentence and a link:
+
+   ```html
+   <p>Someone from the Example team is available now.</p>
+   <a href="tel:+442046206677;to=01a14495-5600-7f00-bf02-112233445566">Talk to them now</a>
+   ```
+
+   The walk reaches the link first and follows it in the background: the
+   phone system rings the team while the agent keeps talking ("Someone from
+   the Example team is free, I'm trying them now. While it rings, who am I
+   speaking to?"). When nobody is free, the page has no link, and the walk is
+   the booking flow above.
+4. **Details while it rings.** The agent asks the entry form's remaining
+   questions (who is calling, their part in the matter), then the team
+   page's. The entry form's come after its submit button, so they are never
+   posted. They are the call's notes instead, with a
+   `data-calculate="conversation"` summary rewritten after each answer, and
+   the person being rung reads them on the ringing card before picking up.
+5. **On answer, the agent goes quiet.** The team member is joined to the
+   call, the agent says one line ("I've got Sam from the team for you now")
+   and stays silent until hangup. It stops writing the notes, which are the
+   team member's from then on.
+6. **No answer.** If nobody has picked up when the walk reaches the time
+   question, the agent stops the ring, says they couldn't pick up, and books
+   a call back on the same page.
+
+Three rules keep it safe and honest:
+
+- **Only the line's own numbers.** The agent dials only numbers its
+  operator configured for the tenant, and resolves `;to=` (here a team) only
+  within that tenant ([SPEC §12](../SPEC.md#12-security-considerations)). A
+  page cannot make it ring anyone else.
+- **One attempt per call.** The link is followed once. A caller who asks for
+  a person before the team is known is told the agent will find their case
+  first; once a page offers the link, it is followed straight away.
+- **The link means someone is free now.** The producer renders it only while
+  a team member is online and not on a call, so the agent never promises a
+  person the page did not offer.
 
 ## Chat
 
