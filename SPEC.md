@@ -336,11 +336,11 @@ character references decoded and leading and trailing whitespace removed.
 Known limits of 0.2, kept because both existing implementations behave this
 way and the fixtures record it:
 
-- A radio group's `label` is `""`, and its `description` comes from its first
-  radio, not from the `fieldset` around the group. A consumer SHOULD phrase a
-  radio group's question from the enclosing `legend` and that `fieldset`'s
-  `data-description`. A later version is expected to put both in the
-  inventory.
+- (Lifted in 0.3.) A radio group inside a `fieldset` takes the `legend` as
+  its `label`, and the `fieldset`'s `data-description` as its `description`
+  when its first radio carries none; outside a `fieldset` both are `""`. 0.2
+  left the label empty and the consumer phrased the question from the
+  legend itself; the fixtures now record the legend.
 - A `checkbox` is reported as a text field, and a `select multiple` as a
   single choice.
 - A field is answered by `name`. Producers SHOULD give each field its own

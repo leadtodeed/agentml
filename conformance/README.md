@@ -28,7 +28,7 @@ inventory.
 
 Some things these fixtures pin down are easy to get wrong:
 
-- a radio group's `label` is `""`, and its `id` is its first radio's `id`;
+- a radio group's `label` is its fieldset's legend (0.3; `""` outside a fieldset), and its `id` is its first radio's `id`;
 - `required` on any one radio makes the whole group required;
 - a `<button>` with no `name` is a `submit`, even without `type="submit"`;
 - hidden inputs never appear in the inventory;
