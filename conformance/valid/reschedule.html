@@ -1,0 +1,22 @@
+<section id="reschedule" data-description="The person is on a call with the assistant and cannot talk now: a time of their choosing for the assistant to call back, and the number to ring. Submit when both are known.">
+  <h2>Another time for your call</h2>
+  <p>Let's find another time for your call with Collective Legal; it takes about 15 minutes. Any time between 7am and 10pm, today or in the next two weeks.</p>
+  <form action="/bookings/p/homey-ai/reschedule?n=%2B447700900123" method="post">
+    <input type="hidden" name="subject" value="/chat-form/c/homey/x/0192f3a0-7c1e-7d2a-9a3c-3f6a7b8c9d0e/1">
+    <input type="hidden" name="client_name" value="Jane Smith">
+    <label for="at">When shall we call you?</label>
+    <input type="datetime-local" id="at" name="at" required min="2026-11-06T13:15" max="2026-11-20T13:07" step="900" data-tz="Europe/London" data-description="a moment the person names in their own words; needs a day and a time; read it back once">
+    <fieldset>
+      <legend>Shall we call you on the same number?</legend>
+      <p><input type="radio" id="same_number_yes" name="same_number" value="yes" required> <label for="same_number_yes">Yes</label></p>
+      <p><input type="radio" id="same_number_no" name="same_number" value="no"> <label for="same_number_no">No, a different one</label></p>
+    </fieldset>
+    <label for="client_number">The number we have</label>
+    <input type="tel" id="client_number" name="client_number" value="+447700900123" readonly data-description="the number this call is on; say it only if asked which number">
+    <section data-when="same_number = no">
+      <label for="client_number_other">Which number should we call?</label>
+      <input type="tel" id="client_number_other" name="client_number_other" required data-constraint="uk_phone" data-description="the number to ring instead, one digit at a time">
+    </section>
+    <button type="submit">Book it</button>
+  </form>
+</section>

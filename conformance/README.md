@@ -24,6 +24,7 @@ inventory.
 | `reserved_attributes` | Every reserved attribute ([SPEC §11](../SPEC.md#11-draft-and-reserved-attributes)): accepted, and passed through as `constraint` where the inventory carries it. |
 | `team_page_live_connect` | A team's booking page offering someone to talk to now: a `tel:` link with a `;to=` parameter before the form, read as an ordinary **link** field ([SPEC §4.4](../SPEC.md#44-links)), then name, number, message, a prefilled choice, the time and the submit button. |
 | `entry_page` | An incoming-call form walked over more than one page ([SPEC §8.1](../SPEC.md#81-more-than-one-page)): a required `uk_address` field expanded into a postcode, a lookup link and a first line, then the submit button, then optional fields asked after the response, ending with a `data-calculate="conversation"` textarea ([SPEC §11.3](../SPEC.md#113-data-calculate)). |
+| `reschedule` | The AI's "another time" page (0.3): a `datetime-local` with `min`, `max`, `step` and `data-tz` (its own constraint in the inventory), a `readonly` number (`readonly: true` in the inventory, omitted when false), a radio pair, a `data-when` section, the name hidden. |
 
 Some things these fixtures pin down are easy to get wrong:
 

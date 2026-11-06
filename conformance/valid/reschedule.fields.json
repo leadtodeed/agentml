@@ -1,0 +1,74 @@
+[
+  {
+    "id": "at",
+    "name": "at",
+    "kind": "text",
+    "required": true,
+    "label": "When shall we call you?",
+    "description": "a moment the person names in their own words; needs a day and a time; read it back once",
+    "constraint": "datetime-local",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "same_number_yes",
+    "name": "same_number",
+    "kind": "choice",
+    "required": true,
+    "label": "Shall we call you on the same number?",
+    "description": "",
+    "constraint": "",
+    "options": [
+      {
+        "id": "same_number_yes",
+        "value": "yes",
+        "label": "Yes"
+      },
+      {
+        "id": "same_number_no",
+        "value": "no",
+        "label": "No, a different one"
+      }
+    ],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "client_number",
+    "name": "client_number",
+    "kind": "text",
+    "required": false,
+    "label": "The number we have",
+    "description": "the number this call is on; say it only if asked which number",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": "",
+    "readonly": true
+  },
+  {
+    "id": "client_number_other",
+    "name": "client_number_other",
+    "kind": "text",
+    "required": true,
+    "label": "Which number should we call?",
+    "description": "the number to ring instead, one digit at a time",
+    "constraint": "uk_phone",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  },
+  {
+    "id": "",
+    "name": "",
+    "kind": "submit",
+    "required": false,
+    "label": "Book it",
+    "description": "",
+    "constraint": "",
+    "options": [],
+    "disabled": false,
+    "href": ""
+  }
+]
