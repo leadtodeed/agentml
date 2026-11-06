@@ -110,14 +110,17 @@ same booking service. Nothing about the booking is written twice.
 
 ## Status
 
-**0.2, Draft.** Validation, field extraction, prefilled values, submission
+**0.3, Draft.** Validation, field extraction, prefilled values, submission
 with per-answer confidence, and the voice and chat walkers are running in
-production. New in 0.2 and being built in the voice agent: `tel:` links it
-follows in the background to put a caller through to a person, walks over
-more than one page (a form whose submission redirects to the next), and
-`data-calculate` for a summary nobody is asked. Conditional sections
-(`data-when`), actions and general link traversal are specified as Draft or
-reserved.
+production. 0.2 added `tel:` links the voice agent follows in the background
+to put a caller through to a person, walks over more than one page (a form
+whose submission redirects to the next), and `data-calculate` for a summary
+nobody is asked. 0.3 is what the first scheduled calls taught: a prefilled
+value is trusted, not confirmed; a `readonly` field is the page's voiceover,
+said only when asked; a page may be prefilled from its own query string; and
+`datetime-local` lets a person name a moment in their own words. Conditional
+sections (`data-when`), actions and general link traversal are specified as
+Draft or reserved.
 [SPEC §14](SPEC.md#14-implementation-status) has the full table.
 
 The implementations behind the demo are not open source yet. This repository

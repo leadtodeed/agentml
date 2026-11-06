@@ -1,4 +1,4 @@
-# AgentML 0.2
+# AgentML 0.3
 
 **Status: Draft, 16 October 2026.** Parts of this document describe
 behaviour that is running in production. Other parts are reserved for later
@@ -172,7 +172,7 @@ These are allowed only on the element named:
 
 | Element | Attributes |
 |---|---|
-| `input` | `type`, `name`, `value`, `required`, `checked` |
+| `input` | `type`, `name`, `value`, `required`, `checked`, `readonly`; on `datetime-local` also `min`, `max`, `step`, `data-tz` |
 | `select` | `name`, `required`, `multiple` |
 | `option` | `value`, `selected` |
 | `textarea` | `name`, `required`, `rows`, `placeholder` |
@@ -193,11 +193,26 @@ described in [§11](#11-draft-and-reserved-attributes).
 
 ### 4.3 Input types
 
-`text`, `tel`, `email`, `number`, `radio`, `checkbox`, `hidden`.
+`text`, `tel`, `email`, `number`, `radio`, `checkbox`, `hidden`,
+`datetime-local`.
 
 A validator MUST reject any other `type`. A colour picker has no form a
-person can say out loud or type into a chat. A date the person must pick is a
-choice of the dates on offer, or a text field.
+person can say out loud or type into a chat. A date the person must pick
+from a list is a choice of the dates on offer.
+
+**`datetime-local`** (0.3) is a moment the person names freely: "tomorrow at
+ten", "Thursday evening", "the 7th at half past two". Its value is HTML's
+local date and time string, `YYYY-MM-DDTHH:MM`, no seconds, no zone (the
+RFC 3339 `date-time` without its offset); the zone is `data-tz`, an IANA
+name such as `Europe/London`, and without it the page's own. `min` and
+`max` bound it, in the same form; `step` is in seconds and a consumer MUST
+round what the person said to it (900 = the quarter hour). A consumer MUST
+resolve the person's words into one moment in that zone and read it back
+once in words ("Friday 7 November at 10am — shall I book that?"); a part of
+a day ("Thursday evening") is not yet an answer, so the consumer asks for
+the time. A browser shows its native picker; Mobile Safari ignores `step`
+on it, so a producer MUST accept and round a value off the step rather than
+refuse it.
 
 0.2 does not define `checkbox`, or `select` with `multiple`, beyond how the
 inventory reports them ([§5.2](#52-extraction)). Producers SHOULD NOT use
@@ -279,6 +294,7 @@ In JSON, which is how the conformance fixtures record it:
 | `constraint` | string | The element's `data-constraint`, verbatim. |
 | `options` | array | For a choice, `{id, value, label}` per option. Otherwise `[]`. |
 | `disabled` | boolean | For an action: whether it may be used. |
+| `readonly` | boolean | 0.3: a text field that is the page's voiceover — not asked, submitted as it came, said when asked ([§7](#7-what-the-page-already-knows)). Omitted when false. |
 | `href` | string | For a link: where it points. |
 
 An absent attribute reads as `""`. A boolean attribute (`required`,
@@ -377,12 +393,27 @@ than guess.
 
 ## 7. What the page already knows
 
-**Prefilled values.** A `value` on an `input`, the text of a `textarea`, a
-`checked` radio and a `selected` option are what the producer already
-believes. A consumer SHOULD confirm a prefilled value in one short turn
-rather than ask for it again. A consumer MUST submit a prefilled value
-unchanged if it never brought the field up, which is exactly what a browser
-does with a field nobody touched.
+**Prefilled values.** A `value` on an `input` or the text of a `textarea`
+is what the producer already knows (0.3: trusted). A consumer MUST NOT ask
+or confirm it: a link that knew the person's name does not need the name
+said again. The person may still change it by saying so, and a consumer
+MUST submit a prefilled value unchanged if it never came up, which is
+exactly what a browser does with a field nobody touched. (0.2 asked for a
+one-turn confirmation; a first welcome call that confirmed a known client's
+name, number and address one by one showed why not.)
+
+**Where a prefill comes from.** A producer MAY prefill any field from a
+query parameter of the same name on the page's URL: the link is how the
+page learns what the producer upstream already knew. Personal data in a URL
+is the producer's to weigh ([§12](#12-security-considerations)).
+
+**`readonly`.** A field with `readonly` and a value is the page's voiceover
+(0.3): a consumer MUST NOT ask it, MUST submit it as it came, and SHOULD say
+its label and value only when the person asks ("which number?"), as it
+answers from prose that follows "If you ask". It is how a producer shows a
+person a fact in a browser without making the agent read it out. `disabled`
+keeps its HTML meaning and belongs to actions only: a disabled control is
+not submitted.
 
 **Earlier answers.** A page served later in a conversation
 ([§8.1](#81-more-than-one-page)) MAY carry the person's earlier answers as
@@ -806,6 +837,10 @@ in production.
 | Goal manifests | [goals](docs/goals-and-results.md) | **Built** for one goal type, composed per page. |
 | Result events | [goals](docs/goals-and-results.md) | **Built** in the voice agent. Signed `goal.*` webhooks are planned. |
 | `checkbox`, `select multiple` | 4.3 | **Undefined.** |
+| Prefilled values trusted (0.3) | 7 | **Being built** in the voice agent: a prefilled text is not asked or confirmed. |
+| `readonly` (0.3) | 7 | **Being built**: the Go validator and both parsers accept it; the voice agent skips it and answers from it when asked. |
+| Query-string prefill (0.3) | 7 | **Built** by the booking producer for its reschedule page. |
+| `datetime-local` (0.3) | 4.3 | **Being built**: the voice agent resolves a spoken moment in the page's zone, rounds to `step`, reads it back once. |
 
 ## 15. References
 
